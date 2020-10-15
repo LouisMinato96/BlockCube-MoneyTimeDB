@@ -1,6 +1,6 @@
 const express = require('express');
 const router = require('express-promise-router')();
-const { validateBody, schemas } = require('./../helpers/routeHelpers');
+const { validateBody, schemas } = require('./../helper/buypackHelper');
 
 const UserController = require('./../controllers/users');
 
