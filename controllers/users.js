@@ -52,7 +52,7 @@ const InsertAndUpdateForUser = async (User, UserAncestors, packCode) => {
             break;
         }
     }
-
+    
     const sponsorIdsForAncestor = AncestorForThisPackCode.sponsorId[packCode];
     const ArrayOfPack = await PackModal.find({
         packId: { $in: sponsorIdsForAncestor }
@@ -106,16 +106,24 @@ module.exports = {
         console.log(`UserController.buypack() called!`);
         const { userName, packCode, price } = req.value.body;
 
+        // // SAVE A USER
+        // const newUser = new UserModal();
+        // newUser.userName = '12345678';
+        // newUser.packCode = 5;
+        // newUser.sponsorId = '';
+        // newUser.ancestorSponsorIds = [  ];
+        // await newUser.save();
+
         // Get User Details
         const User = await UserModal.findOne({ userName });
         const ancestorsponsorIds = User.ancestorSponsorIds;
-
+        
         // Find All the Ancestors
         const UserAncestors = await UserModal
             .find({
                 'userName': { $in: ancestorsponsorIds }
             });
-
+        
         // Insert and Update for Packcode
         const oldPackCode = User.packCode;
         for (let i = oldPackCode + 1; i <= packCode; i++) {
@@ -123,6 +131,6 @@ module.exports = {
         }
 
 
-        res.status(200).json({ token: jwtToken });
+        res.status(200).json({ token: 'hello' });
     }
 };

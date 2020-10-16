@@ -5,12 +5,15 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     emailId: {
         type: String,
+        default: ''
     },
     password: {
         type: String,
+        default: ''
     },
     userName: {
         type: String,
+        default: ''
     },
     packId: { 
         type: Array, 
@@ -21,14 +24,16 @@ const userSchema = new Schema({
         default: 0 
     },
     sponsorId: { 
-        type: String 
+        type: String ,
+        default: ''
     },
     spinTicket: { 
         type: String, 
         default: 0 
     },
     userStellarAddress: { 
-        type: String 
+        type: String,
+        default: '' 
     },
     countryCode: { 
         type: Number, 
@@ -49,7 +54,7 @@ const userSchema = new Schema({
 });
 
 // Create Modal
-const UserModal = mongoose.model("userDetails", userDetails);
+const UserModal = mongoose.model("userDetails", userSchema);
 
 // Export Modal
 module.exports = UserModal;

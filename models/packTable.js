@@ -27,6 +27,9 @@ const packTable = new Schema({
   packCode: {
     type: String
   },
+  earning: {
+    type: Number
+  }
 });
 
 // Create Modal

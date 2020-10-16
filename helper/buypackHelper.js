@@ -16,7 +16,7 @@ module.exports = {
     schemas: {
         authSchema: joi.object().keys({
             userName: joi.string().required(),
-            packCode: joi.string().required(),
+            packCode: joi.number().required(),
             price: joi.number().required()
         })
     }
